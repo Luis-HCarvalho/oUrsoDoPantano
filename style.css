@@ -24,7 +24,7 @@ body {
 
 }
 
-#gameScreen1 {
+#gameScreen1, #creditos, #pontuacoes {
     border: 2px dashed #ffffff;
 }
 
@@ -41,14 +41,42 @@ body {
     font-size: 32px;
     color: #ffffff;
     cursor: pointer;
+    display: block;
+    text-align: center;
 }
 
 #gameScreen1 > button:hover{
     font-size: 31px;
 }
 
-#gameScreen2{
+#buttons {
+    text-align: center;
+}
+
+button{
+    border: 0;
+    background-color: #000000;
+    line-height: 40px;
+    font-size: 32px;
+    color: #ffffff;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+button:hover{
+    font-size: 31px;
+}
+
+#creditos, #pontuacoes, #gameScreen2{
     display: none;
+}
+
+#pontuacoes p{
+    color: blue;
+}
+#creditos p{
+    color: yellow;
 }
 
 #screen1 {
