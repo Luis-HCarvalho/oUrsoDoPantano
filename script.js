@@ -24,6 +24,7 @@ function players(event){
             score[scoreIndex][0] = playerName;
             scoreIndex++;
             playerNameStatus = 1;
+            changeScreen(event, gameScreen1, gameScreen2);
         }
         else{
             alert("O nome do jogador deve ter ao menos 3 letras");
@@ -45,17 +46,26 @@ function gameStart(event){
     gameStartButton = 0;
 }
 
-
+var proficiency;
 function submit(event, inputN){
     let input = document.getElementById(inputN);
     if (event.keyCode === 13){
         if ((input.value != '1') && (input.value != '2') && (input.value != '3') && (input.value != '4')){
             alert("Escolha invalida... tente  de novo!");
         }
-        else{
-            alert(input.value);
+        else if (inputN === "input2"){
+            proficiency = input.value;
+            changeScreen(event, gameScreen2, gameScreen3);
+        }
+        else if (inputN === "input3"){
+                if ((input.value == '1') || (input.value == '4') || (input.value == '3' && proficiency != '1')){
+                    changeScreen(event, gameScreen3, gameScreen4);
+                }
+                else {
+                    changeScreen(event, gameScreen3, gameScreen4_1);
+                }
         }
         input.value = "";
     }
-    input.value = "";
+    
 }

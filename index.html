@@ -67,20 +67,130 @@
         <!-- estrutura da tela de jogo escolhas-->
         <div id="gameScreen2" class="gameScreen">
             <div id="screen1">
-                <div id="img"></div>
-                <div id="text">
-                    <p>Bem vindo!!!</p>
+                <div class="img">
+                    <p>
+ .--.              .--.
+: (\ ". _......_ ." /) :
+ '.    `        `    .'
+  /'   _        _   `\
+ /     0}      {0     \
+|       /      \       |
+|     /'        `\     |
+ \   | .  .==.  . |   /
+  '._ \.' \__/ './ _.'
+  /  ``'._-''-_.'``  \
+ `--`
+                    </p>
+                </div>
+                <div class="text">
+                    <p class="texto">> Olá "aventureiro"!, você é mais um dos que arriscam 
+                        desafiar os perigos do pântano. Eu serei o seu guia e para a sua 
+                        primeira aventura, que tal explorar um castelo abandonado?<br>
+                        Traga-me a coroa do rei do castelo e eu irei te recompensar com algumas moedas de ouro.<br>
+                        Mas antes, diga-me no que você tem proficiência:
+                    </p>
                 </div>
             </div>
             <div id="screen2">
-                <p class="options">[1] Pular no rio.</p>
-                <p class="options">[2] Atacar o urso.</p>
-                <p class="options">[3] Fugir.</p>
-                <p class="options">[4] Tentar resolver seus problemas na conversa.</p>
+                <p class="options">[1] Força.</p>
+                <p class="options">[2] Inteligência.</p>
+                <p class="options">[3] Carisma.</p>
+                <p class="options">[4] Sorte.</p>
             </div>
             <input id="input2" type="text" onkeypress="submit(event, 'input2')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
         <!---->
+
+        <!-- Portao do castelo-->
+        <div id="gameScreen3" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p>
+                        o
+                        _---|         _ _ _ _ _
+                     o   ---|     o   ]-I-I-I-[
+    _ _ _ _ _ _  _---|      | _---|    \ ` ' /
+    ]-I-I-I-I-[   ---|      |  ---|    |.   |
+     \ `   '_/       |     / \    |    | /^\|
+      [*]  __|       ^    / ^ \   ^    | |*||
+      |__   ,|      / \  /    `\ / \   | ===|
+   ___| ___ ,|__   /    /=_=_=_=\   \  |,  _|
+   I_I__I_I__I_I  (====(_________)___|_|____|____
+   \-\--|-|--/-/  |     I  [ ]__I I_I__|____I_I_|
+    |[]      '|   | []  |`__  . [  \-\--|-|--/-/
+    |.   | |' |___|_____I___|___I___|---------|
+   / \| []   .|_|-|_|-|-|_|-|_|-|_|-| []   [] |
+  <===>  |   .|-=-=-=-=-=-=-=-=-=-=-|   |    / \
+  ] []|`   [] ||.|.|.|.|.|.|.|.|.|.||-      <===>
+  ] []| ` |   |/////////\\\\\\\\\\.||__.  | |[] [
+  <===>     ' ||||| |   |   | ||||.||  []   <===>
+   \T/  | |-- ||||| | O | O | ||||.|| . |'   \T/
+    |      . _||||| |   |   | ||||.|| |     | |
+ ../|' v . | .|||||/____|____\|||| /|. . | . ./
+  |//\............/...........\........../../\\\
+                    </p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+                        > Os portões do castelo possuem um forte feitiço. Para entrar é necessário 
+                        resolver a charada: "É mais leve que uma pluma, mas nem o mais forte dos 
+                        homens pode segurar por muito tempo"
+                        <!--o ar, respiração-->
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Responder "Uma folha".</p>
+                <p class="options">[2] Responder "O ar".</p>
+                <p class="options">[3] Tentar abrir os portões à força.</p>
+                <p class="options">[4] Responder "O ouro".</p>
+            </div>
+            <input id="input3" type="text" onkeypress="submit(event, 'input3')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+        </div>
+        <!---->
+
+        <div id="gameScreen4" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p></p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+                        > Os portões continuam fechados, porêm, o feitiço reagiu a sua tentativa, te lançando
+                        alguns metros para trás. O a reação do feitiço à você voi tão forte que os muros cederam, 
+                        abrindo um buraco, assim permitindo a sua passagem para dentro do castelo.
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Responder "Uma folha".</p>
+                <p class="options">[2] Responder "O ar".</p>
+                <p class="options">[3] Tentar abrir os portões à força.</p>
+                <p class="options">[4] Responder "O ouro".</p>
+            </div>
+            <input id="input4" type="text" onkeypress="submit(event, 'input4')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+        </div>
+        <!---->
+
+        <div id="gameScreen4_1" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p></p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Responder "Uma folha".</p>
+                <p class="options">[2] Responder "O ar".</p>
+                <p class="options">[3] Tentar abrir os portões à força.</p>
+                <p class="options">[4] Responder "O ouro".</p>
+            </div>
+            <input id="input4_1" type="text" onkeypress="submit(event, 'input4_1')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+        </div>
 
         <script src="script.js"></script>
     </body>
