@@ -16,11 +16,11 @@
 | |_| | | |_| | |  \__ \ (_) | | (_| | (_) | |  __/ (_| | | | | || (_| | | | | (_) |
  \___/   \___/|_|  |___/\___/   \__,_|\___/  |_|   \__,_|_| |_|\__\__,_|_| |_|\___/ 
             </p>
-            <h1>Player: <input id="inputPlayer" type="text" onkeypress="players(event)" maxlength="8" minlength="1" placeholder=">>>"></h1>
+            <h1>Player: <input id="inputPlayer" type="text" maxlength="8" minlength="1" placeholder=">>>"></h1>
             <div id="buttons">
-                <button type="button" onclick="gameStart(event)">Começar</button>
-                <button type="button" onclick="changeScreen(event, gameScreen1, pontuacoes)">Pontuações</button>
-                <button type="button" onclick="changeScreen(event, gameScreen1, creditos)">Creditos</button>
+                <button type="button" onclick="gameStart(event); players(event);  soundEffects(event, 'clickSound');" onmouseover="soundEffects(event, 'hoverSound')">Começar</button>
+                <button type="button" onclick="changeScreen(event, gameScreen1, pontuacoes); soundEffects(event, 'clickSound');" onmouseover="soundEffects(event, 'hoverSound')">Pontuações</button>
+                <button type="button" onclick="changeScreen(event, gameScreen1, creditos); soundEffects(event, 'clickSound');" onmouseover="soundEffects(event, 'hoverSound')">Creditos</button>
             </div>
         
         
@@ -193,6 +193,54 @@
 
             </div>
             <input id="input4_1" type="text" onkeypress="submit(event, 'input4_1')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+        </div>
+
+        <!---->
+
+        <div id="gameScreen5" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p></p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+                        > Ao entrar no salão do trono você avista uma enorme pilha de ouro repleta de tesouros 
+                        e joias, que refletem os feixes de luz que entram no salão através das rachaduras 
+                        nas paredes e dos buracos nas cortinas das janelas, mas em cima de todas 
+                        essas riquezas há um enorme dragão de escamas vermelhas , aparentemente em sono profundo. 
+                        E ao fundo uma coroa 
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Ir para o salão do trono.</p>
+                <p class="options">[2] Ir para o calabouço.</p>
+                <p class="options">[3] Ir para o salão do trono.</p>
+                <p class="options">[4] Ir para o calabouço.</p>
+            </div>
+            <input id="input5" type="text" onkeypress="submit(event, 'input5')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+        </div>
+
+        <!---->
+
+        <div id="gameScreen6" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p></p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+                        > 
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Ir para o salão do trono.</p>
+                <p class="options">[2] Ir para o calabouço.</p>
+                <p class="options">[3] Ir para o salão do trono.</p>
+                <p class="options">[4] Ir para o calabouço.</p>
+            </div>
+            <input id="input6" type="text" onkeypress="submit(event, 'input6')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
         <script src="script.js"></script>

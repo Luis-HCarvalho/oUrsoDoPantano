@@ -68,7 +68,7 @@ button:hover{
     font-size: 31px;
 }
 
-#creditos, #pontuacoes, #gameScreen2, #gameScreen3, #gameScreen4, #gameScreen4_1{
+#creditos, #pontuacoes, #gameScreen2, #gameScreen3, #gameScreen4, #gameScreen4_1, #gameScreen5, #gameScreen6{
     display: none;
 }
 
@@ -117,7 +117,7 @@ input, input:focus{
     margin-bottom: 30px;
 }
 
-#input2, #input3, #input4, #input4_1{
+#input2, #input3, #input4, #input4_1, #input5, #input6{
     border: 2px dashed #ffffff;
     width: 100%;
 }
