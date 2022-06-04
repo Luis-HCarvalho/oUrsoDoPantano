@@ -24,7 +24,7 @@ body {
 
 }
 
-#startScreen, #creditos, #pontuacoes {
+#startScreen, #creditos, #pontuacoes, .gameOver{
     border: 2px dashed #ffffff;
 }
 
@@ -131,4 +131,12 @@ input, input:focus{
     margin-right: 5px;
     white-space: pre-wrap;
     line-height: 100%;
+}
+
+#gameOverImg{
+    height: 75%;
+}
+
+#gameOverText {
+    height: 15%;
 }

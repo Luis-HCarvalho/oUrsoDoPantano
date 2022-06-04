@@ -1,3 +1,5 @@
+<!--screen1 para class-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -293,12 +295,50 @@ _     _.-,'(__)\__)\-'' `     ___  .          `     \      `--._
             </div>
             <div id="screen2">
                 <p class="options">[1] O Dragão.</p>
-                <p class="options">[2] O urso.</p>
+                <p class="options">[2] Porfavor não me mate.</p><!--carisma-->
                 <p class="options">[3] Eu.</p>
                 <p class="options">[4] Quem estiver em posse da coroa.</p>
             </div>
             <input id="inputDragaoAcordou" type="text" onkeypress="submit(event, 'inputDragaoAcordou')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
+
+        <!-- Errou a pergunta e o dragao te atacou-->
+
+        <div id="dragaoAtacou" class="gameScreen gameOver">
+            <div id="gameOverImg" class="img">
+                <p style="color: red;">
+                /|           \    ,   |\         }  )/  / `-,',
+               [ ,          |\  /|   | |        /  \|  |/`  ,`
+               | |       ,.`  `,` `, | |  _,...(   (      .',
+               \  \  __ ,-` `  ,  , `/ |,'      Y     (   /_L\
+                \  \_\,``,   ` , ,  /  |         )         _,/
+                 \  '  `  ,_ _`_,-,<._.<        /         /
+                  ', `>.,`  `  `   ,., |_      |         /
+                    \/`  `,   `   ,`  | /__,.-`    _,   `\
+                -,-..\  _  \  `  /  ,  / `._) _,-\`       \
+                 \_,,.) /\    ` /  / ) (-,, ``    ,        |
+                ,` )  | \_\       '-`  |  `(               \
+               /  /```(   , --, ,' \   |`<`    ,            |
+              /  /_,--`\   <\  V /> ,` )<_/)  | \      _____)
+        ,-, ,`   `   (_,\ \    |   /) / __/  /   `----`
+       (-, \           ) \ ('_.-._)/ /,`    /
+       | /  `          `/ \\ V   V, /`     /
+    ,--\(        ,     <_/`\\     ||      /
+   (   ,``-     \/|         \-A.A-`|     /
+  ,>,_ )_,..(    )\          -,,_-`  _--`
+ (_ \|`   _,/_  /  \_            ,--`
+                </p>
+            </div>
+            <div id="gameOverText" class="text">
+                <p class="texto">
+                    >  O dragão te ataca, rapidamente abrindo sua boca com inumeros dentes mais afiados que 
+                    espadas e garras maiores que que lanças.<br>
+                    VOCÊ MORREU
+                </p>
+            </div>
+            <button type="button" onclick="changeScreen(event, dragaoAtacou, startScreen)" >Voltar</button>
+        </div>
+
 
         <script src="script.js"></script>
     </body>

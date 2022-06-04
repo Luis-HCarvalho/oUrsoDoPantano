@@ -100,6 +100,14 @@ function submit(event, inputN){
                 changeScreen(event, salaoDoTrono, gameOver);
             }
         }
+        else if (inputN === "inputDragaoAcordou"){
+            if (input.value == 2 && proficiency == 3){
+                //vc nao morre
+            }
+            else {
+                changeScreen(event, dragaoAcordou, dragaoAtacou);
+            }
+        }
         input.value = "";
     }
     
