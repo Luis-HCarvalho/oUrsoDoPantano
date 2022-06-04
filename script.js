@@ -90,19 +90,21 @@ function submit(event, inputN){
             }
         }
         else if (inputN === "inputSalaoTrono"){
-            if ((input.value == '1') || (input.value == '2' && espadaMagica == false) || (input.value == '3' && proficiency != 4)){
+            if ((input.value == '1') || (input.value == '2' && espadaMagica == false) || (input.value == '3' && proficiency != '4')){
                 changeScreen(event, salaoDoTrono, dragaoAcordou);
             }
             else if (input.value == '4'){
                 changeScreen(event, salaoDoTrono, voltarEntradaCastelo);
             }
-            else {
-                changeScreen(event, salaoDoTrono, gameOver);
+            else if(input.value == '3' && proficiency == '4'){
+                changeScreen(event, salaoDoTrono, vitoriaFurtiva);
+                //titulo = Ladrão de Coroas
             }
         }
         else if (inputN === "inputDragaoAcordou"){
             if (input.value == 2 && proficiency == 3){
-                //vc nao morre
+                changeScreen(event, dragaoAcordou, derrotaCarismática);
+                //titulo = Perdedor Carismático
             }
             else {
                 changeScreen(event, dragaoAcordou, dragaoAtacou);
