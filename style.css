@@ -24,7 +24,7 @@ body {
 
 }
 
-#gameScreen1, #creditos, #pontuacoes {
+#startScreen, #creditos, #pontuacoes {
     border: 2px dashed #ffffff;
 }
 
@@ -35,7 +35,7 @@ body {
     margin: 70px auto 40px auto;
 }
 
-#gameScreen1 > button {
+#startScreen > button {
     border: 0;
     background-color: #000000;
     font-size: 32px;
@@ -45,7 +45,7 @@ body {
     text-align: center;
 }
 
-#gameScreen1 > button:hover{
+#startScreen > button:hover{
     font-size: 31px;
 }
 
@@ -68,7 +68,8 @@ button:hover{
     font-size: 31px;
 }
 
-#creditos, #pontuacoes, #gameScreen2, #gameScreen3, #gameScreen4, #gameScreen4_1, #gameScreen5, #gameScreen6{
+#creditos, #pontuacoes, #oUrso, #oPortao, #dentroDoCastelo_1, #dentroDoCastelo_2, #voltarEntradaCastelo, #salaoDoTrono, 
+#dragaoAcordou{
     display: none;
 }
 
@@ -117,7 +118,7 @@ input, input:focus{
     margin-bottom: 30px;
 }
 
-#input2, #input3, #input4, #input4_1, #input5, #input6{
+#inputUrso, #inputPortao, #inputCastelo1, #inputCastelo2, #inputCastelo3, #inputSalaoTrono, #inputDragaoAcordou{
     border: 2px dashed #ffffff;
     width: 100%;
 }

@@ -1,4 +1,4 @@
-
+var espadaMagica;
 // set player leaderboards name and score
 var playerNameStatus = 0;
 function players(event){
@@ -49,9 +49,10 @@ function changeScreen(event, screen1, screen2){
 var gameStartButton = 0;
 function gameStart(event){
     gameStartButton = 1;
+    espadaMagica = false;
     players(event);
     if (playerNameStatus === 1){
-        changeScreen(event, gameScreen1, gameScreen2);  
+        changeScreen(event, startScreen, oUrso);  
     }
     gameStartButton = 0;
 }
@@ -64,17 +65,40 @@ function submit(event, inputN){
         if ((input.value != '1') && (input.value != '2') && (input.value != '3') && (input.value != '4')){
             alert("Escolha invalida... tente  de novo!");
         }
-        else if (inputN === "input2"){
+        else if (inputN === "inputUrso"){
             proficiency = input.value;
-            changeScreen(event, gameScreen2, gameScreen3);
+            changeScreen(event, oUrso, oPortao);
         }
-        else if (inputN === "input3"){
+        else if (inputN === "inputPortao"){
                 if ((input.value == '1') || (input.value == '4') || (input.value == '3' && proficiency != '1')){
-                    changeScreen(event, gameScreen3, gameScreen4);
+                    changeScreen(event, oPortao, dentroDoCastelo_1);
                 }
                 else {
-                    changeScreen(event, gameScreen3, gameScreen4_1);
+                    changeScreen(event, oPortao, dentroDoCastelo_2);
                 }
+        }
+        else if ((inputN === "inputCastelo1") || (inputN === "inputCastelo2") || (inputN === "inputCastelo3")){
+            if (input.value == '1'){
+                changeScreen(event, dentroDoCastelo_1, salaoDoTrono);
+                changeScreen(event, dentroDoCastelo_2, salaoDoTrono);
+                changeScreen(event, voltarEntradaCastelo, salaoDoTrono);
+            }
+            else {
+                changeScreen(event, dentroDoCastelo_1, calabouco);
+                changeScreen(event, dentroDoCastelo_2, calabouco);
+                changeScreen(event, voltarEntradaCastelo, calabouco);
+            }
+        }
+        else if (inputN === "inputSalaoTrono"){
+            if ((input.value == '1') || (input.value == '2' && espadaMagica == false) || (input.value == '3' && proficiency != 4)){
+                changeScreen(event, salaoDoTrono, dragaoAcordou);
+            }
+            else if (input.value == '4'){
+                changeScreen(event, salaoDoTrono, voltarEntradaCastelo);
+            }
+            else {
+                changeScreen(event, salaoDoTrono, gameOver);
+            }
         }
         input.value = "";
     }
