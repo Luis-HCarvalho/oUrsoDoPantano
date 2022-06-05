@@ -1,42 +1,28 @@
-//itens
+//items
 var morcego;
 var espadaMagica;
 
 
+// (localStorage.length - 1) is the index of the current player
+
 // set player leaderboards name and score
-var playerNameStatus = 0;
-function players(event){
+var playerNameStatus;
+function players(){
     let playerName = document.getElementById("inputPlayer");
-    //let playerScore; // id of the tag list in the html
-    //let scoreLi; // used to create li tags 
-    if (gameStartButton === 1){
-        if (playerName.value.length >= 3){
-            playerNameStatus = 1;
-            // achar uma forma de alterar o score "0"
-            localStorage.setItem(playerName.value, 0);
-            //create an elements li with the name and score in the pontuacao screen
-            // problema na criação de tags li
-            for (let i = 0; i < localStorage.length; i++){
-                let playerScore = document.getElementById("playerScore");
-                let scoreLi = document.createElement("li");
-                
-                scoreLi.textContent = localStorage.key(i) + " : " + localStorage.getItem(playerName);
-                
-                
-                playerScore.appendChild(scoreLi);
 
-                
+    // check if the player's chosen name is valid and place it in localStorage and leaderboards
+    if (playerName.value.length >= 3){
+        playerNameStatus = true; // the player's name is valid
+        localStorage.setItem(playerName.value, "sem título"); //store the player's name
 
-                scoreLi.value = "";
-                
-            }
-        }
-        else{
-            alert("O nome do jogador deve ter ao menos 3 letras");
-        }
-        playerName.value = "";
     }
+    else{
+        alert("O nome do jogador deve ter ao menos 3 letras");
+    }
+    playerName.value = "";
+    
 }
+
 
 // change display from screen1 to screen2
 function changeScreen(event, screen1, screen2){
@@ -45,22 +31,24 @@ function changeScreen(event, screen1, screen2){
 }
 
 
-// função de ordenação das pontuações 
 
-
-
-// fazer o botao de começar o jogo funcionar como um submit do nome do jogador
-var gameStartButton = 0;
+// the button of game start works as a submit of the player's name and starts the game
 function gameStart(event){
-    gameStartButton = 1;
+    //initialize items as false
     espadaMagica = false;
     morcego = false;
-    players(event);
-    if (playerNameStatus === 1){
-        changeScreen(event, startScreen, oUrso);  
+
+    players(); //check the player's name as valid or not and place it in the leaderboards
+
+    if (playerNameStatus === true){ //if the player's name has 3 char minimum and the start button is pressed the game starts
+        changeScreen(event, startScreen, oUrso);
+        changeFocus('inputUrso');  
     }
-    gameStartButton = 0;
+    // set variables as false to prevent bugs if the game is played after a game over without refreshing the page
+    gameStartButton = false;
+    playerNameStatus = false;
 }
+
 
 var proficiency;
 function submit(event, inputN){
@@ -73,13 +61,16 @@ function submit(event, inputN){
         else if (inputN === "inputUrso"){
             proficiency = input.value;
             changeScreen(event, oUrso, oPortao);
+            changeFocus('inputPortao');
         }
         else if (inputN === "inputPortao"){
                 if ((input.value == '1') || (input.value == '4') || (input.value == '3' && proficiency != '1')){
                     changeScreen(event, oPortao, dentroDoCastelo_1);
+                    changeFocus('inputCastelo1');
                 }
                 else {
                     changeScreen(event, oPortao, dentroDoCastelo_2);
+                    changeFocus('inputCastelo2');
                 }
         }
         else if ((inputN === "inputCastelo1") || (inputN === "inputCastelo2") || (inputN === "inputCastelo3")){
@@ -87,69 +78,89 @@ function submit(event, inputN){
                 changeScreen(event, dentroDoCastelo_1, salaoDoTrono);
                 changeScreen(event, dentroDoCastelo_2, salaoDoTrono);
                 changeScreen(event, voltarEntradaCastelo, salaoDoTrono);
+                changeFocus('inputSalaoTrono');
             }
-            else {
+            else if (input.value == '2'){
                 changeScreen(event, dentroDoCastelo_1, calabouco);
                 changeScreen(event, dentroDoCastelo_2, calabouco);
                 changeScreen(event, voltarEntradaCastelo, calabouco);
+                changeFocus('inputCalabouco');
+            }
+            else {
+                alert("Escolha invalida... tente  de novo!");
             }
         }
         else if (inputN === "inputSalaoTrono"){
             if ((input.value == '1') || (input.value == '2' && espadaMagica == false) || (input.value == '3' && proficiency != '4')){
                 changeScreen(event, salaoDoTrono, dragaoAcordou);
+                changeFocus('inputDragaoAcordou');
             }
             else if (input.value == '4'){
                 changeScreen(event, salaoDoTrono, voltarEntradaCastelo);
+                changeFocus('inputCastelo3');
             }
             else if(input.value == '3' && proficiency == '4'){
                 changeScreen(event, salaoDoTrono, vitoriaFurtiva);
+                changeFocus('inputPlayer');
                 //titulo = Ladrão de Coroas
             }
             else if(input.value == '2' && espadaMagica == true){
                 changeScreen(event, salaoDoTrono, matouDragao);
+                changeFocus('inputPlayer');
                 //titulo = Matador de Dragões
             }
         }
         else if (inputN === "inputDragaoAcordou"){
             if (input.value == '2' && proficiency == '3'){
                 changeScreen(event, dragaoAcordou, derrotaCarismática);
+                changeFocus('inputPlayer');
                 //titulo = Perdedor Carismático
             }
             else {
                 changeScreen(event, dragaoAcordou, dragaoAtacou);
+                changeFocus('inputPlayer');
+                //titulo = Morte por fogo
             }
         }
         else if (inputN === 'inputCalabouco'){
             if (input.value == '1'){
                 changeScreen(event, calabouco, caminhoEsquerda);
+                changeFocus('inputCaminhoEsquerda');
             }
             else if (input.value == '2'){
                 changeScreen(event, calabouco, caminhoDireita);
+                changeFocus('inputCaminhoDireita');
             }
             else {
                 alert("Escolha invalida... tente  de novo!");
+                changeFocus('inputCalabouco');
             }
         }
         else if (inputN === 'inputCaminhoEsquerda'){
             if (input.value == '1' || input.value == '2'){
                 changeScreen(event, caminhoEsquerda, puzzleFechadura);
+                changeFocus('inputPuzzle');
             }
             else if (input.value == '3'){
                 morcego = true;
                 changeScreen(event, caminhoEsquerda, puzzleMorcegoCapturado);
+                changeFocus('inputPuzzleMorcegoCapturado');
             }
             else if (input.value == '4'){
                 changeScreen(event, caminhoEsquerda, calabouco);
+                changeFocus('inputCalabouco');
             }
         }
         else if (inputN === 'inputPuzzle' || inputN === 'inputPuzzleMorcegoCapturado'){
             if ((input.value == '1' && proficiency == '1') || (input.value == '2' && proficiency == '2')){
                 changeScreen(event, puzzleFechadura, genio);
                 changeScreen(event, puzzleMorcegoCapturado, genio);
+                changeFocus('inputGenio');
             }
             else if (input.value == '3'){
                 changeScreen(event, puzzleFechadura, calabouco);
                 changeScreen(event, puzzleMorcegoCapturado, calabouco);
+                changeFocus('inputCalabouco');
             }
             else if (input.value == '4'){
                 alert("Escolha invalida... tente  de novo!");
@@ -161,22 +172,27 @@ function submit(event, inputN){
         else if (inputN === 'inputCaminhoDireita'){
             if (input.value == '4'){
                 changeScreen(event, caminhoDireita, calabouco);
+                changeFocus('inputCalabouco');
             }
             else {
                 changeScreen(event, caminhoDireita, caminhoDireitaParte2);
+                changeFocus('inputCaminhoDireitaParte2');
             }
         }
         else if (inputN === 'inputCaminhoDireitaParte2'){
             if (input.value == '1'){
                 if (morcego == true){
                     changeScreen(event, caminhoDireitaParte2, necromancerComMorcego);
+                    changeFocus('inputNecromancer2');
                 }
                 else{
                     changeScreen(event, caminhoDireitaParte2, necromancerSemMorcego);
+                    changeFocus('inputNecromancer1');
                 }
             }
             else if (input.value == '2'){
                 changeScreen(event, caminhoDireitaParte2, calabouco);
+                changeFocus('inputCalabouco');
             }
             else {
                 alert("Escolha invalida... tente  de novo!");
@@ -186,10 +202,12 @@ function submit(event, inputN){
             if((input.value == '1' && proficiency == '3') || (input.value == '3' && morcego == true)){
                 changeScreen(event, necromancerSemMorcego, genio);
                 changeScreen(event, necromancerComMorcego, genio);
+                changeFocus('inputGenio');
             }
             else if (input.value == '2') {
                 changeScreen(event, necromancerSemMorcego, calabouco);
                 changeScreen(event, necromancerComMorcego, calabouco);
+                changeFocus('inputCalabouco');
             }
             else {
                 alert("Escolha invalida... tente  de novo!");
@@ -199,15 +217,19 @@ function submit(event, inputN){
             if (input.value == '1'){
                 espadaMagica = true;
                 changeScreen(event, genio, passagemSecreta1_espada);
+                changeFocus('inputPassagemSecreta1_espada');
             }
             else if (input.value == '2'){
                 changeScreen(event, genio, desejoCoroa);
+                changeFocus('inputPlayer');
             }
             else if (input.value == '3'){
                 changeScreen(event, genio, passagemSecreta2);
+                changeFocus('inputPassagemSecreta2');
             }
             else if (input.value == '4'){
                 changeScreen(event, genio, passagemSecreta1_bau);
+                changeFocus('inputPassagemSecreta1_bau');
             }
         }
         else if (inputN === 'inputPassagemSecreta1_espada' || inputN === 'inputPassagemSecreta1_bau' || 
@@ -216,11 +238,13 @@ function submit(event, inputN){
                 changeScreen(event, passagemSecreta1_espada, salaoDoTrono);
                 changeScreen(event, passagemSecreta1_bau, salaoDoTrono);
                 changeScreen(event, passagemSecreta2, salaoDoTrono);
+                changeFocus('inputSalaoTrono');
             }
             else if (input.value == '1'){
                 changeScreen(event, passagemSecreta1_espada, startScreen);
                 changeScreen(event, passagemSecreta1_bau, startScreen);
                 changeScreen(event, passagemSecreta2, startScreen);
+                changeFocus('inputPlayer');
             }
         }
         input.value = "";
@@ -243,4 +267,9 @@ function soundEffects(event, sound){
         audio = new Audio('mixkit-arcade-bonus-alert-767.wav');
         audio.play();
     }
+}
+
+// change the cursor location from one input to another
+function changeFocus(inputFocus){
+    document.getElementById(inputFocus).focus();
 }
