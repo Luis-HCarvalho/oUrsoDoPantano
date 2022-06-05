@@ -101,17 +101,30 @@ function submit(event, inputN){
                 //titulo = Ladrão de Coroas
             }
             else if(input.value == '2' && espadaMagica == true){
-                changeScreen(event, salaoDoTrono, matouDragao)
+                changeScreen(event, salaoDoTrono, matouDragao);
+                //titulo = Matador de Dragões
             }
         }
         else if (inputN === "inputDragaoAcordou"){
-            if (input.value == 2 && proficiency == 3){
+            if (input.value == '2' && proficiency == '3'){
                 changeScreen(event, dragaoAcordou, derrotaCarismática);
                 //titulo = Perdedor Carismático
             }
             else {
                 changeScreen(event, dragaoAcordou, dragaoAtacou);
             }
+        }
+        else if (inputN === 'inputCalabouco'){
+            if (input.value == '1'){
+                changeScreen(event, calabouco, caminhoEsquerda);
+            }
+            else if (input.value == '2'){
+                changeScreen(event, calabouco, caminhoDireita);
+            }
+            else {
+                alert("Escolha invalida... tente  de novo!");
+            }
+
         }
         input.value = "";
     }

@@ -332,7 +332,7 @@
                 <p class="texto">
                     >  O dragão te ataca, rapidamente abrindo sua boca com inumeros dentes mais afiados que 
                     espadas e garras maiores que que lanças.<br>
-                    VOCÊ MORREU
+                    VOCÊ MORREU <span style="color: rgb(199, 9, 9)">Missão Fracassada</span>
                 </p>
             </div>
             <button type="button" onclick="changeScreen(event, dragaoAtacou, startScreen)" >Voltar</button>
@@ -366,10 +366,82 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
                 <p class="texto">
                     >  Sua proficiência em furtividade finalmente serviu para alguma coisa. Você conseguiu passar pelo dragão
                     sem acorda-lo e pegar a coroa.<br>
-                    PARABÉNS por completar a missão!!!
+                    <span style="color: yellow">Missão Comprida</span>
                 </p>
             </div>
             <button type="button" onclick="changeScreen(event, vitoriaFurtiva, startScreen)" >Voltar</button>
+        </div>
+
+        <!--gameover vitoria furtiva-->
+        <div id="matouDragao" class="gameScreen gameOver">
+            <div id="gameOverImg" class="img">
+                <p style="color: red;"> 
+                      ,-,-      
+                     / / |      
+                   _/ / /       
+               _,-' `Z_/        
+            ,-'_,-.    \  _     
+          _(_-'_X \     \" |    
+  ,--_,--'                 |    
+ / ""                      L-'\ 
+ \,--^---v--v-._        /   \ | 
+   \________________,-'     _\\
+                    \   ___/
+                     \/
+                </p>
+            </div>
+            <div id="gameOverText" class="text">
+                <p class="texto">
+                    >  Você desenbanhou a espada magica e golpeou o pescoço do dragão o mais forte que podia, 
+                    decapitando ele. O brilho do ouro foi ofuscado pelo sangue e a cabeça da poderosa besta 
+                    rolou para os pés do trono. Você derrotou o a mais feroz das criaturas e conseguiu reivindicar
+                    a coroa.<br>
+                    <span style="color: yellow">Missão Comprida</span>
+                </p>
+            </div>
+            <button type="button" onclick="changeScreen(event, matouDragao, startScreen)" >Voltar</button>
+        </div>
+
+        <!-- Dungeon-->
+        <div id="calabouco" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p style="color: purple;">
+   _________________________________________________________
+ /|     -_-                                             _-  |\
+/ |_-_- _                                         -_- _-   -| \   
+  |                            _-  _--                      | 
+  |                            ,                            |
+  |      .-'````````'.        '(`        .-'```````'-.      |
+  |    .` |           `.      `)'      .` |           `.    |          
+  |   /   |             \      U      /   |             \   |
+  |  |    |              | o   T   o |    |              |  |
+  |  |    |              |  .  |  .  |    |              |  |
+  |  |    |              |   . | .   |    |              |  |
+  |  |    |              |    .|.    |    |              |  |
+  |  |    |______________|     |     |    |______________|  |  
+  |  |   /  __     -     |     !     |   /          _ -  |  |
+  |  |  / __            -|        -  |  /  __--      -   |  |
+  |  | /        __-- _   |   _- _ -  | /        __--_    |  |
+  |__|/__________________|___________|/__________________|__|
+ /                                             _ -           \
+/   -_- _ -             _- _---                       -_-  -_ \
+                    </p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+                        > Entrando no calabouço, você se depara com dois caminhos diferentes, um para esquerda 
+                        e outro para a direita.<br>
+                        Para onde você vai?
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Esquerda.</p>
+                <p class="options">[2] Direita.</p>
+
+            </div>
+            <input id="inputCalabouco" type="text" onkeypress="submit(event, 'inputCalabouco')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
 
