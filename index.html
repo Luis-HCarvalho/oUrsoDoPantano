@@ -366,7 +366,7 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
                 <p class="texto">
                     >  Sua proficiência em furtividade finalmente serviu para alguma coisa. Você conseguiu passar pelo dragão
                     sem acorda-lo e pegar a coroa.<br>
-                    <span style="color: yellow">Missão Comprida</span>
+                    <span style="color: yellow">Missão Cumprida</span>
                 </p>
             </div>
             <button type="button" onclick="changeScreen(event, vitoriaFurtiva, startScreen)" >Voltar</button>
@@ -444,6 +444,455 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
             <input id="inputCalabouco" type="text" onkeypress="submit(event, 'inputCalabouco')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
+        <!-- caminho da esquerda-->
+        <div id="caminhoEsquerda" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p style="color: rgb(105, 2, 105);">
+     _..__.          .__.._
+   .^"-.._ '-(\__/)-' _..-"^.
+          '-.' oo '.-'
+             `-..-' 
+                    </p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+                        > O caminho está extremamente escuro, e a cada passo, um barulho começa 
+                        a ficar cada vez mais alto. De repente, você consegue enxergar uma forma 
+                        no escuro muito similar a um morcego.<br>
+                        O que você faz?
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Atacar.</p>
+                <p class="options">[2] Jogar uma pedra.</p>
+                <p class="options">[3] Capturar.</p>
+                <p class="options">[4] Voltar.</p>
+            </div>
+            <input id="inputCaminhoEsquerda" type="text" onkeypress="submit(event, 'inputCaminhoEsquerda')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+        </div>
+
+        <!-- (Puzzle) caminho da esquerda mais a frente-->
+        <div id="puzzleFechadura" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p style="color: rgb(197, 120, 52);">
+     .--------.
+    / .------. \
+   / /        \ \
+   | |        | |
+  _| |________| |_
+.' |_|        |_| '.
+'._____ ____ _____.'
+|     .'____'.     |
+'.__.'.'    '.'.__.'
+'.__  |      |  __.'
+|   '.'.____.'.'   |
+'.____'.____.'____.'
+'.________________.'
+                    </p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+                        > O morcego se assusta, desaparecendo na escuridão do calabouço. 
+                        Após continuar seguindo o caminho, você se depara com uma porta 
+                        de pedra com uma estranha fechadura, que parece precisar de uma 
+                        combinação para ser aberta.
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Tentar abrir à força.</p>
+                <p class="options">[2] Tentar decifrar a combinação.</p>
+                <p class="options">[3] Voltar para o começo do calabouço.</p>
+            </div>
+            <input id="inputPuzzle" type="text" onkeypress="submit(event, 'inputPuzzle')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+        </div>
+
+        <!-- (Puzzle) morcego capturado-->
+        <div id="puzzleMorcegoCapturado" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p style="color: rgb(197, 120, 52);">
+     .--------.
+    / .------. \
+   / /        \ \
+   | |        | |
+  _| |________| |_
+.' |_|        |_| '.
+'._____ ____ _____.'
+|     .'____'.     |
+'.__.'.'    '.'.__.'
+'.__  |      |  __.'
+|   '.'.____.'.'   |
+'.____'.____.'____.'
+'.________________.'
+                    </p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+                        > Após continuar seguindo o caminho, você se depara com uma porta 
+                        de pedra com uma estranha fechadura, que parece precisar de uma 
+                        combinação para ser aberta.
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Tentar abrir à força.</p>
+                <p class="options">[2] Tentar decifrar a combinação.</p>
+                <p class="options">[3] Voltar para o começo do calabouço.</p>
+            </div>
+            <input id="inputPuzzleMorcegoCapturado" type="text" onkeypress="submit(event, 'inputPuzzleMorcegoCapturado')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+        </div>
+
+        <!-- caminho da direita-->
+        <div id="caminhoDireita" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p style="color: rgb(221, 220, 220);">
+               .7
+             .'/           
+            / /
+           / /
+          / /
+         / /
+        / /
+      __|/
+     ,-\__\
+    |f-"Y\|
+    \()7L/                __ _            
+     cgD               .'  Y '>,         
+     )\/              / _   _   \   
+    ///               )(_) (_)(|}   
+   ///                {  4A   } /   
+  ///                  \uLuJJ/\l   
+ ///                   |3    p)/ 
+///___ __________      /nnm_n//
+c7___-__,__-)\,__)(".  \_>-<_/D
+                   \_"-._.__G G_c__.-__<"/ ( \ 
+                    <"-._>__-,G_.___)\   \7\
+                 ("-.__.| \"<.__.-" )   \ \
+                 |"-.__"\  |"-.__.-".\   \ \
+
+                    </p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+                        > O caminho está completamente escuro, e o chão, forrado de ossos que quebram a cada passo 
+                        que você da... CRACK CRACK CRACK. De repente, os ossos começam a se juntar em uma forma 
+                        humanoide, e num piscar de olhos, a criatura levanta sobre a cabeça uma espada enferrujada 
+                        e avança em sua direção.<br>
+                        O que você faz? 
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Atacar.</p>
+                <p class="options">[2] Se defender.</p>
+                <p class="options">[3] Usar da escuridão para se esconder.</p>
+                <p class="options">[4] Voltar.</p>
+            </div>
+            <input id="inputCaminhoDireita" type="text" onkeypress="submit(event, 'inputCaminhoDireita')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+        </div>
+
+        <!-- continuaçao caminho da direita-->
+        <div id="caminhoDireitaParte2" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p style="color: rgb(221, 220, 220);">
+       __                                                           _____
+    .-~  ~"-.                                                    .-~     "-.
+   /         \                                                  /           Y
+  Y          ;                                                  i           |
+  `.   _     `._                                              __)         .'
+    )=~         `-.._                                    _..-'~         ~"<_
+ .-~                 ~`-.._                       _..-'~                   ~.
+/                          ~`-.._           _..-'~                           Y
+{        .~"-._                  ~`-.._ .-'~                  _..-~;         ;
+ `._   _,'     ~`-.._                  ~`-.._           _..-'~     `._    _.-
+    ~~"              ~`-.._                  ~`-.._ .-'~              ~~"~
+  .----.            _..-'  ~`-.._                  ~`-.._          .-~~~~-.
+ /      `.    _..-'~             ~`-.._                  ~`-.._   (        ".
+Y        `=--~                  _..-'  ~`-.._                  ~`-'         |
+|                         _..-'~             ~`-.._                         ;
+`._                 _..-'~                         ~`-.._            -._ _.'
+   "-.="      _..-'~                                     ~`-.._        ~`.
+    /        `.                                                ;          Y
+   Y           Y                                              Y           |
+   |           ;                                              `.          /
+   `.       _.'                                                 "-.____.-'
+     ~-----"
+                    </p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+                        > Antes que você pudesse ter qualquer reação quando o esqueleto ergue sua espada 
+                        o mais alto que consegue, os ossos voltam todos para o chão. Aparentemente, a magia 
+                        que o mantia de pé não era forte o suficiente para ele ter tempo de te atacar. De repente, 
+                        você escuta um echo vindo mais adiante do calabouço: "Eu consigo sentir sua presença, humano".
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Seguir em frente.</p>
+                <p class="options">[2] Voltar para o começo do calabouço.</p>
+
+            </div>
+            <input id="inputCaminhoDireitaParte2" type="text" onkeypress="submit(event, 'inputCaminhoDireitaParte2')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+        </div>
+
+        <!-- Necromancer sem morcego-->
+        <div id="necromancerSemMorcego" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p style="color: rgb(90, 12, 90);">
+             ___          
+            /   \\        
+       /\\ | . . \\       
+     ////\\|     ||       
+   ////   \\ ___//\       
+  ///      \\      \      
+ ///       |\\      |     
+//         | \\  \   \    
+/          |  \\  \   \   
+           |   \\ /   /   
+           |    \/   /    
+           |     \\/|     
+           |      \\|     
+           |       \\     
+           |        |     
+           |_________\ 
+                    </p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+                        > A medida que você segue em frente, você começa a enxergar uma silhueta 
+                        de uma criatura sombria, que se mistura com a escuridão do calabouço.
+                        -Humano, não de mais nenhum passo, pois eu sou o guardião dessa passagem. 
+                        Se você deseja passar, deve pagar o preço. Traga-me uma criatura da noite. 
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Tentar persuadi-lo a te deixar passar.</p><!--carisma-->
+                <p class="options">[2] Voltar para o começo do calabouço.</p>
+
+            </div>
+            <input id="inputNecromancer1" type="text" onkeypress="submit(event, 'inputNecromancer1')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+        </div>
+
+        <!-- Necromancer com morcego-->
+        <div id="necromancerComMorcego" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p style="color: rgb(90, 12, 90);">
+             ___          
+            /   \\        
+       /\\ | . . \\       
+     ////\\|     ||       
+   ////   \\ ___//\       
+  ///      \\      \      
+ ///       |\\      |     
+//         | \\  \   \    
+/          |  \\  \   \   
+           |   \\ /   /   
+           |    \/   /    
+           |     \\/|     
+           |      \\|     
+           |       \\     
+           |        |     
+           |_________\ 
+                    </p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+                        > A medida que você segue em frente, você começa a enxergar uma silhueta 
+                        de uma criatura sombria, que se mistura com a escuridão do calabouço.
+                        -Humano, não de mais nenhum passo, pois eu sou o guardião dessa passagem. 
+                        Se você deseja passar, deve pagar o preço. Traga-me uma criatura da noite.
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Tentar persuadi-lo a te deixar passar.</p><!--carisma-->
+                <p class="options">[2] Voltar para o começo do calabouço.</p>
+                <p class="options">[3] Entregar morcego.</p>
+            </div>
+            <input id="inputNecromancer2" type="text" onkeypress="submit(event, 'inputNecromancer2')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+        </div>
+
+        <!-- Genio-->
+        <div id="genio" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p style="color: blue;">
+      .-----.
+    .'0000000'.
+   /  .-. .-.  \
+   |  | | | |  |
+    \ \0/ \0/ /  
+    C\   U   /D / \
+    0/  ---  \0 \_/
+     `--.v.--`  /_|
+ . ----'  '---.'  '
+/__._. .  .  .__.'
+|_/  `|____/`
+/ \  / ____\
+\_/   \      '--.
+      '.        `\
+        `'---.   /
+             ) /
+                    </p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+                        > Agora você está dentro de uma câmara diferente do resto calabouço. A luz da 
+                        lua passa por uma abertura no teto e ilumina uma estátua de uma criatura mística, e 
+                        antes que você pudesse se aproximar, uma fumaça toma conta de todo calabouço, e você 
+                        pode ouvir um estrondo, como de trovões rasgando o céu e da fumaça sai uma voz:<br>
+                        -Eu sou o PODEROSO Ori-Jim, e por ter me libertado da minha prisão eu lhe-concederei um pedido.<br>
+                        -O que você mais deseja?
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Uma espada mágica.</p>
+                <p class="options">[2] A coroa.</p>
+                <p class="options">[3] Mil desejos.</p>
+                <p class="options">[4] Um baú cheio de ouro.</p>
+            </div>
+            <input id="inputGenio" type="text" onkeypress="submit(event, 'inputGenio')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+        </div>
+
+        <!-- Passagem secreta espada magica-->
+        <div id="passagemSecreta1_espada" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p style="color: silver;">
+     /|
+    |\|
+    |||
+    |||
+    |||
+    |||
+    |||
+    |||
+ ~-[{o}]-~
+    |/|
+    |/|
+    `0' 
+                    </p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+                        > O seu pedido foi concedido e uma passagem secreta se abriu na parede da câmara.
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Ir embora.</p>
+                <p class="options">[2] Seguir em frente.</p>
+
+            </div>
+            <input id="inputPassagemSecreta1_espada" type="text" onkeypress="submit(event, 'inputPassagemSecreta1_espada')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+        </div>
+
+        <!-- Passagem secreta bau de ouro-->
+        <div id="passagemSecreta1_bau" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p style="color: gold;">
+                 _.--.
+             _.-'_:-'||
+         _.-'_.-::::'||
+    _.-:'_.-::::::'  ||
+  .'`-.-:::::::'     ||
+ /.'`;|:::::::'      ||_
+||   ||::::::'     _.;._'-._
+||   ||:::::'  _.-!oo @.!-._'-.
+\'.  ||:::::.-!()oo @!()@.-'_.|
+ '.'-;|:.-'.&$@.& ()$%-'o.'\U||
+   `>'-.!@%()@'@_%-'_.-o _.|'||
+    ||-._'-.@.-'_.-' _.-o  |'||
+    ||=[ '-._.-\U/.-'    o |'||
+    || '-.]=|| |'|      o  |'||
+    ||      || |'|        _| ';
+    ||      || |'|    _.-'_.-'
+    |'-._   || |'|_.-'_.-'
+     '-._'-.|| |' `_.-'
+         '-.||_/.-'
+                    </p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+                        > O seu pedido foi concedido e uma passagem secreta se abriu na parede da câmara.
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Ir embora.</p>
+                <p class="options">[2] Seguir em frente.</p>
+
+            </div>
+            <input id="inputPassagemSecreta1_bau" type="text" onkeypress="submit(event, 'inputPassagemSecreta1_bau')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+        </div>
+
+        <!-- Passagem secreta mil desejos-->
+        <div id="passagemSecreta2" class="gameScreen">
+            <div id="screen1">
+                <div class="img">
+                    <p style="color: rgb(90, 12, 90);">
+
+                    </p>
+                </div>
+                <div class="text">
+                    <p class="texto">
+                        > Você gastou o seu pedido...não parece ter funcionado.<br> 
+                        Uma passagem secreta se abriu na parede da câmara.
+                    </p>
+                </div>
+            </div>
+            <div id="screen2">
+                <p class="options">[1] Ir embora.</p>
+                <p class="options">[2] Seguir em frente.</p>
+
+            </div>
+            <input id="inputPassagemSecreta2" type="text" onkeypress="submit(event, 'inputPassagemSecreta2')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+        </div>
+
+        <!--desejo genio coroa-->
+        <div id="desejoCoroa" class="gameScreen gameOver">
+            <div id="gameOverImg" class="img">
+                <p style="color: gold;"> 
+                                   $""$o
+                                  $"  $$
+                                   $$$$
+                                   o "$o
+                                  o"  "$
+             oo"$$$"  oo$"$ooo   o$    "$    ooo"$oo  $$$"o
+o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
+"$o   ""$$$"   $$         $      "   o   ""    o"         $   "o$$"    o$$
+  ""o       o  $          $"       $$$$$       o          $  ooo     o""
+     "o   $$$$o $o       o$        $$$$$"       $o        " $$$$   o"
+      ""o $$$$o  oo o  o$"         $$$$$"        "o o o o"  "$$$  $
+        "" "$"     """""            ""$"            """      """ "
+         "oooooooooooooooooooooooooooooooooooooooooooooooooooooo$
+          "$$$$"$$$$" $$$$$$$"$$$$$$ " "$$$$$"$$$$$$"  $$$""$$$$
+           $$$oo$$$$   $$$$$$o$$$$$$o" $$$$$$$$$$$$$$ o$$$$o$$$"
+           $"""""""""""""""""""""""""""""""""""""""""""""""""""$
+           $"                                                  o
+           $"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$$
+                </p>
+            </div>
+            <div id="gameOverText" class="text">
+                <p class="texto">
+                    >  Você conseguiu a coroa, através do genio..<br>
+                    <span style="color: yellow">Missão Cumprida</span>
+                </p>
+            </div>
+            <button type="button" onclick="changeScreen(event, desejoCoroa, startScreen)" >Voltar</button>
+        </div>
 
         <script src="script.js"></script>
     </body>

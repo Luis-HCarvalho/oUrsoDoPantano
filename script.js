@@ -1,4 +1,8 @@
+//itens
+var morcego;
 var espadaMagica;
+
+
 // set player leaderboards name and score
 var playerNameStatus = 0;
 function players(event){
@@ -50,6 +54,7 @@ var gameStartButton = 0;
 function gameStart(event){
     gameStartButton = 1;
     espadaMagica = false;
+    morcego = false;
     players(event);
     if (playerNameStatus === 1){
         changeScreen(event, startScreen, oUrso);  
@@ -124,7 +129,99 @@ function submit(event, inputN){
             else {
                 alert("Escolha invalida... tente  de novo!");
             }
-
+        }
+        else if (inputN === 'inputCaminhoEsquerda'){
+            if (input.value == '1' || input.value == '2'){
+                changeScreen(event, caminhoEsquerda, puzzleFechadura);
+            }
+            else if (input.value == '3'){
+                morcego = true;
+                changeScreen(event, caminhoEsquerda, puzzleMorcegoCapturado);
+            }
+            else if (input.value == '4'){
+                changeScreen(event, caminhoEsquerda, calabouco);
+            }
+        }
+        else if (inputN === 'inputPuzzle' || inputN === 'inputPuzzleMorcegoCapturado'){
+            if ((input.value == '1' && proficiency == '1') || (input.value == '2' && proficiency == '2')){
+                changeScreen(event, puzzleFechadura, genio);
+                changeScreen(event, puzzleMorcegoCapturado, genio);
+            }
+            else if (input.value == '3'){
+                changeScreen(event, puzzleFechadura, calabouco);
+                changeScreen(event, puzzleMorcegoCapturado, calabouco);
+            }
+            else if (input.value == '4'){
+                alert("Escolha invalida... tente  de novo!");
+            }
+            else {
+                alert("Você não conseguiu abrir a fechadura,\n tente um caminho diferente.");
+            }
+        }
+        else if (inputN === 'inputCaminhoDireita'){
+            if (input.value == '4'){
+                changeScreen(event, caminhoDireita, calabouco);
+            }
+            else {
+                changeScreen(event, caminhoDireita, caminhoDireitaParte2);
+            }
+        }
+        else if (inputN === 'inputCaminhoDireitaParte2'){
+            if (input.value == '1'){
+                if (morcego == true){
+                    changeScreen(event, caminhoDireitaParte2, necromancerComMorcego);
+                }
+                else{
+                    changeScreen(event, caminhoDireitaParte2, necromancerSemMorcego);
+                }
+            }
+            else if (input.value == '2'){
+                changeScreen(event, caminhoDireitaParte2, calabouco);
+            }
+            else {
+                alert("Escolha invalida... tente  de novo!");
+            }
+        }
+        else if (inputN === 'inputNecromancer1' || inputN === 'inputNecromancer2'){
+            if((input.value == '1' && proficiency == '3') || (input.value == '3' && morcego == true)){
+                changeScreen(event, necromancerSemMorcego, genio);
+                changeScreen(event, necromancerComMorcego, genio);
+            }
+            else if (input.value == '2') {
+                changeScreen(event, necromancerSemMorcego, calabouco);
+                changeScreen(event, necromancerComMorcego, calabouco);
+            }
+            else {
+                alert("Escolha invalida... tente  de novo!");
+            }
+        }
+        else if (inputN === 'inputGenio'){
+            if (input.value == '1'){
+                espadaMagica = true;
+                changeScreen(event, genio, passagemSecreta1_espada);
+            }
+            else if (input.value == '2'){
+                changeScreen(event, genio, desejoCoroa);
+            }
+            else if (input.value == '3'){
+                changeScreen(event, genio, passagemSecreta2);
+            }
+            else if (input.value == '4'){
+                changeScreen(event, genio, passagemSecreta1_bau);
+            }
+        }
+        else if (inputN === 'inputPassagemSecreta1_espada' || inputN === 'inputPassagemSecreta1_bau' || 
+        inputN === 'inputPassagemSecreta2'){
+            if (input.value == '2'){
+                changeScreen(event, passagemSecreta1_espada, salaoDoTrono);
+                changeScreen(event, passagemSecreta1_bau, salaoDoTrono);
+                changeScreen(event, passagemSecreta2, salaoDoTrono);
+            }
+            else if (input.value == '1'){
+                changeScreen(event, passagemSecreta1_espada, startScreen);
+                changeScreen(event, passagemSecreta1_bau, startScreen);
+                changeScreen(event, passagemSecreta2, startScreen);
+            }
         }
         input.value = "";
     }

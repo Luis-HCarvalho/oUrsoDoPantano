@@ -69,7 +69,9 @@ button:hover{
 }
 
 #creditos, #pontuacoes, #oUrso, #oPortao, #dentroDoCastelo_1, #dentroDoCastelo_2, #voltarEntradaCastelo, #salaoDoTrono, 
-#dragaoAcordou, #dragaoAtacou, #vitoriaFurtiva, #matouDragao, #calabouco{
+#dragaoAcordou, #dragaoAtacou, #vitoriaFurtiva, #matouDragao, #calabouco, #caminhoEsquerda, #puzzleFechadura, #caminhoDireita, 
+#caminhoDireitaParte2, #necromancerSemMorcego, #necromancerComMorcego, #genio, #passagemSecreta1_espada, 
+#passagemSecreta1_bau, #passagemSecreta2, #puzzleMorcegoCapturado, #desejoCoroa{
     display: none;
 }
 
@@ -119,7 +121,9 @@ input, input:focus{
 }
 
 #inputUrso, #inputPortao, #inputCastelo1, #inputCastelo2, #inputCastelo3, 
-#inputSalaoTrono, #inputDragaoAcordou, #inputCalabouco{
+#inputSalaoTrono, #inputDragaoAcordou, #inputCalabouco, #inputCaminhoEsquerda, #inputPuzzle,
+#inputCaminhoDireita, #inputCaminhoDireitaParte2, #inputNecromancer1, #inputNecromancer2, #inputGenio, 
+#inputPassagemSecreta1_espada, #inputPassagemSecreta1_bau, #inputPassagemSecreta2, #inputPuzzleMorcegoCapturado{
     border: 2px dashed #ffffff;
     width: 100%;
 }
