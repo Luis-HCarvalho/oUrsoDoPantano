@@ -100,6 +100,9 @@ function submit(event, inputN){
                 changeScreen(event, salaoDoTrono, vitoriaFurtiva);
                 //titulo = Ladrão de Coroas
             }
+            else if(input.value == '2' && espadaMagica == true){
+                changeScreen(event, salaoDoTrono, matouDragao)
+            }
         }
         else if (inputN === "inputDragaoAcordou"){
             if (input.value == 2 && proficiency == 3){
