@@ -6,7 +6,7 @@
 
 html, body {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 10px);
     font-family: 'VT323', monospace;
     color: #ffffff;
 }
@@ -20,11 +20,7 @@ body {
     background-color: #000000;
     width: 1000px;
     height: 600px;
-    margin:  0 auto;
-
-}
-
-#startScreen, #creditos, #pontuacoes, .gameOver{
+    margin:  20px auto 0 auto;
     border: 2px dashed #ffffff;
 }
 
@@ -33,6 +29,7 @@ body {
     line-height: 100%;
     color: #44f514;
     margin: 70px auto 40px auto;
+
 }
 
 #startScreen > button {
@@ -68,10 +65,7 @@ button:hover{
     font-size: 31px;
 }
 
-#creditos, #pontuacoes, #oUrso, #oPortao, #dentroDoCastelo_1, #dentroDoCastelo_2, #voltarEntradaCastelo, #salaoDoTrono, 
-#dragaoAcordou, #dragaoAtacou, #vitoriaFurtiva, #matouDragao, #calabouco, #caminhoEsquerda, #puzzleFechadura, #caminhoDireita, 
-#caminhoDireitaParte2, #necromancerSemMorcego, #necromancerComMorcego, #genio, #passagemSecreta1_espada, 
-#passagemSecreta1_bau, #passagemSecreta2, #puzzleMorcegoCapturado, #desejoCoroa{
+.displayNone{
     display: none;
 }
 
@@ -84,8 +78,9 @@ button:hover{
 
 #screen1 {
     width: 100%;
-    height: auto;
-    border: 2px dashed #ffffff;
+    height: 450px;
+    position: relative;
+    
 }
 
 p {
@@ -94,11 +89,17 @@ p {
 
 #screen2 {
     width: 100%;
-    height: auto;
-    border-left: 2px dashed #ffffff;
-    border-right: 2px dashed #ffffff;
-    border-top: 0px;
-    border-bottom: 0px;
+    height: 117.2px;
+    border: 0px;
+    border-top: 2px dashed #ffffff;
+
+}
+
+.text {
+    height: max-content;
+    position: absolute;
+    bottom: 0px;
+
 }
 
 .options, .texto {
@@ -112,6 +113,8 @@ input, input:focus{
     color: #ffffff;
     background-color: #000000;
     font-size: 24px;
+    height: 32.8px;
+    
 }
 
 #inputPlayer {
@@ -120,29 +123,36 @@ input, input:focus{
     margin-bottom: 30px;
 }
 
-#inputUrso, #inputPortao, #inputCastelo1, #inputCastelo2, #inputCastelo3, 
+/*#inputUrso, #inputPortao, #inputCastelo1, #inputCastelo2, #inputCastelo3, 
 #inputSalaoTrono, #inputDragaoAcordou, #inputCalabouco, #inputCaminhoEsquerda, #inputPuzzle,
 #inputCaminhoDireita, #inputCaminhoDireitaParte2, #inputNecromancer1, #inputNecromancer2, #inputGenio, 
 #inputPassagemSecreta1_espada, #inputPassagemSecreta1_bau, #inputPassagemSecreta2, #inputPuzzleMorcegoCapturado{
-    border: 2px dashed #ffffff;
+    border: 0px;
+    border-top: 2px dashed #ffffff;
+    border-bottom: 2px dashed #ffffff;
+    width: 100%;}*/
+
+
+.inputOptions{
+    border: 0px;
+    border-top: 2px dashed #ffffff;
+    border-bottom: 2px dashed #ffffff;
     width: 100%;
 }
 
 .img {
     text-align: center;
+    height: auto;
+    margin: auto;
 }
 .img p {
     white-space: pre-wrap;
     line-height: 100%;
     width: max-content;
-    margin: 0 auto;
+    margin: auto;
     text-align: justify;
 }
 
-#gameOverImg{
-    height: 75%;
-}
-
-#gameOverText {
-    height: 15%;
+#gameOverImg, #gameOverText{
+    height: max-content;
 }

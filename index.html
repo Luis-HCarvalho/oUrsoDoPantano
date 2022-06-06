@@ -21,7 +21,7 @@
             <h1>Player: <input id="inputPlayer" type="text" maxlength="8" minlength="1" placeholder=">>>" autofocus></h1>
             <div id="buttons">
                 <button type="button" onclick="gameStart(event);  soundEffects(event, 'clickSound');" onmouseover="soundEffects(event, 'hoverSound')">Começar</button>
-                <button type="button" onclick="changeScreen(event, startScreen, pontuacoes); soundEffects(event, 'clickSound');" onmouseover="soundEffects(event, 'hoverSound')">Pontuações</button>
+                <button type="button" onclick="changeScreen(event, startScreen, pontuacoes); soundEffects(event, 'clickSound'); pontuacao(event)" onmouseover="soundEffects(event, 'hoverSound')">Pontuações</button>
                 <button type="button" onclick="changeScreen(event, startScreen, creditos); soundEffects(event, 'clickSound');" onmouseover="soundEffects(event, 'hoverSound')">Creditos</button>
             </div>
         
@@ -30,7 +30,7 @@
         <!---->
 
         <!-- Creditos-->
-        <div id="creditos" class="gameScreen">
+        <div id="creditos" class="gameScreen displayNone">
             <p>  
   ____       /_/    _ _ _            
  / ___|_ __ ___  __| (_) |_ ___  ___ 
@@ -41,16 +41,17 @@
             </p>
             <ul style="list-style-type: none; padding: 0;">
                 <li>Interface - Luís H. M. Carvalho</li>
-                <li>História - Luís H. M. Carvalho</li>
-                <li>Roteiro - Luís H. M. Carvalho</li>
-                <li>Arte ASCII - Luís H. M. Carvalho</li>
+                <li>História - Luís H. M. Carvalho;<br>
+                    Vinícius Vianna Egydio de Carvalho;<br>
+                    Renato Jorge Correia Alpalhão</li>
+                <li>Arte ASCII - https://www.asciiart.eu/<br>https://ascii.co.uk/art</li>
             </ul>
             <button type="button" onclick="changeScreen(event, creditos, startScreen)" >Voltar</button>
         </div>
         <!---->
 
         <!-- Placares/ jogadores/ scores/ pontuaçoes -->
-        <div id="pontuacoes" class="gameScreen">
+        <div id="pontuacoes" class="gameScreen displayNone">
             <p>
  ____             _                    |___\       
 |  _ \ ___  _ __ | |_ _   _  __ _  ___ __ _  ___  
@@ -59,18 +60,21 @@
 |_|   \___/|_| |_|\__|\__,_|\__,_|\___\__,_|\___/ 
                         /_|
             </p>
-            <ul id="playerScore" style="list-style-type: none; padding: 0;">
+            <ul id="score" style="list-style-type: none; padding: 0;">
                 
             </ul>
-            <button type="button" onclick="changeScreen(event, pontuacoes, startScreen)" >Voltar</button>
+            <button type="button" onclick="changeScreen(event, pontuacoes, startScreen); document.location.reload()" >Voltar</button>
         </div>
         <!---->
 
         <!-- estrutura da tela de jogo escolhas-->
-        <div id="oUrso" class="gameScreen">
+        <div id="oUrso" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p style="color: brown;">
+
+
+
  .--.              .--.
 : (\ ". _......_ ." /) :
  '.    `        `    .'
@@ -99,18 +103,15 @@
                 <p class="options">[3] Carisma.</p>
                 <p class="options">[4] Furtividade.</p>
             </div>
-            <input id="inputUrso" type="text" onkeypress="submit(event, 'inputUrso')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação" autofocus>
+            <input id="inputUrso" class="inputOptions" type="text" onkeypress="submit(event, 'inputUrso')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação" autofocus>
         </div>
         <!---->
 
         <!-- Portao do castelo-->
-        <div id="oPortao" class="gameScreen">
+        <div id="oPortao" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p style="color: rgb(153, 143, 143)">
-                        _---|         _ _ _ _ _
-                     o   ---|     o   ]-I-I-I-[
-    _ _ _ _ _ _  _---|      | _---|    \ ` ' /
     ]-I-I-I-I-[   ---|      |  ---|    |.   |
      \ `   '_/       |     / \    |    | /^\|
       [*]  __|       ^    / ^ \   ^    | |*||
@@ -128,8 +129,7 @@
    \T/  | |-- ||||| | O | O | ||||.|| . |'   \T/
     |      . _||||| |   |   | ||||.|| |     | |
  ../|' v . | .|||||/____|____\|||| /|. . | . ./
-  |//\............/...........\........../../\\\
-                    </p>
+  |//\............/...........\........../../\\\</p>
                 </div>
                 <div class="text">
                     <p class="texto">
@@ -146,11 +146,11 @@
                 <p class="options">[3] Tentar abrir os portões à força.</p>
                 <p class="options">[4] Responder "O ouro".</p>
             </div>
-            <input id="inputPortao" type="text" onkeypress="submit(event, 'inputPortao')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputPortao" class="inputOptions" type="text" onkeypress="submit(event, 'inputPortao')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
         <!---->
 
-        <div id="dentroDoCastelo_1" class="gameScreen">
+        <div id="dentroDoCastelo_1" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p></p>
@@ -171,11 +171,11 @@
                 <p class="options">[2] Ir para o calabouço.</p>
 
             </div>
-            <input id="inputCastelo1" type="text" onkeypress="submit(event, 'inputCastelo1')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputCastelo1" class="inputOptions" type="text" onkeypress="submit(event, 'inputCastelo1')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
         <!---->
 
-        <div id="dentroDoCastelo_2" class="gameScreen">
+        <div id="dentroDoCastelo_2" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p></p>
@@ -193,13 +193,13 @@
                 <p class="options">[2] Ir para o calabouço.</p>
 
             </div>
-            <input id="inputCastelo2" type="text" onkeypress="submit(event, 'inputCastelo2')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputCastelo2" class="inputOptions" type="text" onkeypress="submit(event, 'inputCastelo2')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
         <!---->
 
         <!-- Voltar para a entrada do castelo-->
-        <div id="voltarEntradaCastelo" class="gameScreen">
+        <div id="voltarEntradaCastelo" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p></p>
@@ -217,14 +217,16 @@
                 <p class="options">[2] Ir para o calabouço.</p>
                 
             </div>
-            <input id="inputCastelo3" type="text" onkeypress="submit(event, 'inputCastelo3')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputCastelo3" class="inputOptions" type="text" onkeypress="submit(event, 'inputCastelo3')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
         <!---->
 
-        <div id="salaoDoTrono" class="gameScreen">
+        <div id="salaoDoTrono" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p style="color: red;">
+
+
          _________,---------.____------.___
         /_______    `--._______  `--.____ \\
          /__.-' `-----.____    `--.____\\`_/_
@@ -240,11 +242,11 @@
                 </div>
                 <div class="text">
                     <p class="texto">
-                        > Ao entrar no salão do trono você avista uma enorme pilha de ouro repleta de tesouros 
+                        > Ao entrar no salão do trono você avista uma enorme pilha de ouro, repleta de tesouros 
                         e joias, que refletem os feixes de luz que entram no salão através das rachaduras 
-                        nas paredes e dos buracos nas cortinas das janelas, mas em cima de todas 
+                        nas paredes e dos buracos nas cortinas das janelas. Em cima de todas 
                         essas riquezas há um enorme dragão de escamas vermelhas, aparentemente em sono profundo. 
-                        E ao fundo em cima do trono esta a coroa.
+                        E ao fundo no trono esta a coroa.
                     </p>
                 </div>
             </div>
@@ -254,17 +256,14 @@
                 <p class="options">[3] Tentar pegar a coroa furtivamente .</p>
                 <p class="options">[4] Voltar.</p>
             </div>
-            <input id="inputSalaoTrono" type="text" onkeypress="submit(event, 'inputSalaoTrono')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputSalaoTrono" class="inputOptions" type="text" onkeypress="submit(event, 'inputSalaoTrono')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
         <!-- O dragao acordou-->
-        <div id="dragaoAcordou" class="gameScreen">
+        <div id="dragaoAcordou" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p style="color: red;">
-                                                       ____________
-                                 (`-..________....---''  ____..._.-`
-                                  \\`._______.._,.---'''     ,'
                                   ; )`.      __..-'`-.      /
                                  / /     _.-' _,.;;._ `-._,'
                                 / /   ,-' _.-'  //   ``--._``._
@@ -277,16 +276,15 @@
  \_,--..__. \\ .-`.\----'';``,..-.__ \  \      ,`_. `.,-'`--'`---''`.  )
            `.\`.\  `_.-..' ,'   _,-..'  /..,-''(, ,' ; ( _______`___..'__
                    ((,(,__(    ((,(,__,'  ``'-- `'`.(\  `.,..______      
-                                                      ``--------..._``--.__
-                    </p>
+                                                      ``--------..._``--.__</p>
                 </div>
                 <div class="text">
                     <p class="texto">
-                        > Você acordou o Dragão!!!<br>
+                        > O Dragão acordou!!!<br>
                         A montanha de moedas de ouro em que ele dormia, começa a desmoronar e o poderoso dragão se levanta...
-                        olha para em sua direção e em um bravo rugido fala:<br>
-                        - Pequena criatura, assim como os que vieram antes, você perecerá para as minhas chamas, mas se conseguir
-                        responder à minha pergunta corretamente pouparei sua vida e o deixarei ir embora da forma que chegou,
+                        olha para a sua direção e em um bravo rugido fala:<br>
+                        - Pequena criatura, assim como os que vieram antes, você perecerá nas minhas chamas, mas se conseguir
+                        responder a minha pergunta corretamente pouparei sua vida e o deixarei ir embora da forma como chegou,
                         DE MÃOS VAZIAS.<br>
                         - Diga-me, quem é o rei deste castelo?
                     </p>
@@ -298,11 +296,11 @@
                 <p class="options">[3] Eu.</p>
                 <p class="options">[4] Quem estiver em posse da coroa.</p>
             </div>
-            <input id="inputDragaoAcordou" type="text" onkeypress="submit(event, 'inputDragaoAcordou')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputDragaoAcordou" class="inputOptions" type="text" onkeypress="submit(event, 'inputDragaoAcordou')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
         <!-- Errou a pergunta e o dragao te atacou-->
-        <div id="dragaoAtacou" class="gameScreen gameOver">
+        <div id="dragaoAtacou" class="gameScreen gameOver displayNone">
             <div id="gameOverImg" class="img">
                 <p style="color: red;">
                ,                   \,       '-,-`,'-.' | ._
@@ -328,7 +326,7 @@
 (_ \|`   _,/_  /  \_            ,--`
                 </p>
             </div>
-            <div id="gameOverText" class="text">
+            <div id="gameOverText" class="">
                 <p class="texto">
                     >  O dragão te ataca, rapidamente abrindo sua boca com inumeros dentes mais afiados que 
                     espadas e garras maiores que que lanças.<br>
@@ -339,7 +337,7 @@
         </div>
 
         <!--gameover vitoria furtiva-->
-        <div id="vitoriaFurtiva" class="gameScreen gameOver">
+        <div id="vitoriaFurtiva" class="gameScreen gameOver displayNone">
             <div id="gameOverImg" class="img">
                 <p style="color: gold;"> 
                                    $""$o
@@ -362,7 +360,7 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
            $"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$$
                 </p>
             </div>
-            <div id="gameOverText" class="text">
+            <div id="gameOverText" class="">
                 <p class="texto">
                     >  Sua proficiência em furtividade finalmente serviu para alguma coisa. Você conseguiu passar pelo dragão
                     sem acorda-lo e pegar a coroa.<br>
@@ -373,9 +371,10 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
         </div>
 
         <!--gameover vitoria furtiva-->
-        <div id="matouDragao" class="gameScreen gameOver">
+        <div id="matouDragao" class="gameScreen gameOver displayNone">
             <div id="gameOverImg" class="img">
                 <p style="color: red;"> 
+
                       ,-,-      
                      / / |      
                    _/ / /       
@@ -388,27 +387,27 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
    \________________,-'     _\\
                     \   ___/
                      \/
+
+
                 </p>
             </div>
-            <div id="gameOverText" class="text">
+            <div id="gameOverText" class="">
                 <p class="texto">
                     >  Você desenbanhou a espada magica e golpeou o pescoço do dragão o mais forte que podia, 
                     decapitando ele. O brilho do ouro foi ofuscado pelo sangue e a cabeça da poderosa besta 
-                    rolou para os pés do trono. Você derrotou o a mais feroz das criaturas e conseguiu reivindicar
+                    rolou para os pés do trono. Você derrotou a mais feroz das criaturas e conseguiu reivindicar
                     a coroa.<br>
-                    <span style="color: yellow">Missão Comprida</span>
+                    <span style="color: yellow">Missão Cumprida</span>
                 </p>
             </div>
             <button type="button" onclick="changeScreen(event, matouDragao, startScreen)" >Voltar</button>
         </div>
 
         <!-- Dungeon-->
-        <div id="calabouco" class="gameScreen">
+        <div id="calabouco" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p style="color: purple;">
-   _________________________________________________________
- /|     -_-                                             _-  |\
 / |_-_- _                                         -_- _-   -| \   
   |                            _-  _--                      | 
   |                            ,                            |
@@ -441,14 +440,17 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
                 <p class="options">[2] Direita.</p>
 
             </div>
-            <input id="inputCalabouco" type="text" onkeypress="submit(event, 'inputCalabouco')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputCalabouco" class="inputOptions" type="text" onkeypress="submit(event, 'inputCalabouco')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
         <!-- caminho da esquerda-->
-        <div id="caminhoEsquerda" class="gameScreen">
+        <div id="caminhoEsquerda" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p style="color: rgb(105, 2, 105);">
+
+
+
      _..__.          .__.._
    .^"-.._ '-(\__/)-' _..-"^.
           '-.' oo '.-'
@@ -457,7 +459,7 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
                 </div>
                 <div class="text">
                     <p class="texto">
-                        > O caminho está extremamente escuro, e a cada passo, um barulho começa 
+                        > O caminho está extremamente escuro e a cada passo um barulho começa 
                         a ficar cada vez mais alto. De repente, você consegue enxergar uma forma 
                         no escuro muito similar a um morcego.<br>
                         O que você faz?
@@ -470,14 +472,15 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
                 <p class="options">[3] Capturar.</p>
                 <p class="options">[4] Voltar.</p>
             </div>
-            <input id="inputCaminhoEsquerda" type="text" onkeypress="submit(event, 'inputCaminhoEsquerda')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputCaminhoEsquerda" class="inputOptions" type="text" onkeypress="submit(event, 'inputCaminhoEsquerda')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
         <!-- (Puzzle) caminho da esquerda mais a frente-->
-        <div id="puzzleFechadura" class="gameScreen">
+        <div id="puzzleFechadura" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p style="color: rgb(197, 120, 52);">
+
      .--------.
     / .------. \
    / /        \ \
@@ -507,14 +510,15 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
                 <p class="options">[2] Tentar decifrar a combinação.</p>
                 <p class="options">[3] Voltar para o começo do calabouço.</p>
             </div>
-            <input id="inputPuzzle" type="text" onkeypress="submit(event, 'inputPuzzle')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputPuzzle" class="inputOptions" type="text" onkeypress="submit(event, 'inputPuzzle')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
         <!-- (Puzzle) morcego capturado-->
-        <div id="puzzleMorcegoCapturado" class="gameScreen">
+        <div id="puzzleMorcegoCapturado" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p style="color: rgb(197, 120, 52);">
+
      .--------.
     / .------. \
    / /        \ \
@@ -543,20 +547,14 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
                 <p class="options">[2] Tentar decifrar a combinação.</p>
                 <p class="options">[3] Voltar para o começo do calabouço.</p>
             </div>
-            <input id="inputPuzzleMorcegoCapturado" type="text" onkeypress="submit(event, 'inputPuzzleMorcegoCapturado')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputPuzzleMorcegoCapturado" class="inputOptions" type="text" onkeypress="submit(event, 'inputPuzzleMorcegoCapturado')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
         <!-- caminho da direita-->
-        <div id="caminhoDireita" class="gameScreen">
+        <div id="caminhoDireita" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p style="color: rgb(221, 220, 220);">
-               .7
-             .'/           
-            / /
-           / /
-          / /
-         / /
         / /
       __|/
      ,-\__\
@@ -572,15 +570,12 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
 c7___-__,__-)\,__)(".  \_>-<_/D
                    \_"-._.__G G_c__.-__<"/ ( \ 
                     <"-._>__-,G_.___)\   \7\
-                 ("-.__.| \"<.__.-" )   \ \
-                 |"-.__"\  |"-.__.-".\   \ \
-
-                    </p>
+                 ("-.__.| \"<.__.-" )   \ \</p>
                 </div>
                 <div class="text">
                     <p class="texto">
-                        > O caminho está completamente escuro, e o chão, forrado de ossos que quebram a cada passo 
-                        que você da... CRACK CRACK CRACK. De repente, os ossos começam a se juntar em uma forma 
+                        > O caminho está completamente escuro, o chão forrado de ossos que quebram a cada passo 
+                        que você dá... CRACK CRACK CRACK. De repente, os ossos começam a se juntar em uma forma 
                         humanoide, e num piscar de olhos, a criatura levanta sobre a cabeça uma espada enferrujada 
                         e avança em sua direção.<br>
                         O que você faz? 
@@ -593,11 +588,11 @@ c7___-__,__-)\,__)(".  \_>-<_/D
                 <p class="options">[3] Usar da escuridão para se esconder.</p>
                 <p class="options">[4] Voltar.</p>
             </div>
-            <input id="inputCaminhoDireita" type="text" onkeypress="submit(event, 'inputCaminhoDireita')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputCaminhoDireita" class="inputOptions" type="text" onkeypress="submit(event, 'inputCaminhoDireita')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
         <!-- continuaçao caminho da direita-->
-        <div id="caminhoDireitaParte2" class="gameScreen">
+        <div id="caminhoDireitaParte2" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p style="color: rgb(221, 220, 220);">
@@ -617,19 +612,13 @@ c7___-__,__-)\,__)(".  \_>-<_/D
 Y        `=--~                  _..-'  ~`-.._                  ~`-'         |
 |                         _..-'~             ~`-.._                         ;
 `._                 _..-'~                         ~`-.._            -._ _.'
-   "-.="      _..-'~                                     ~`-.._        ~`.
-    /        `.                                                ;          Y
-   Y           Y                                              Y           |
-   |           ;                                              `.          /
-   `.       _.'                                                 "-.____.-'
-     ~-----"
-                    </p>
+   "-.="      _..-'~                                     ~`-.._        ~`.</p>
                 </div>
                 <div class="text">
                     <p class="texto">
                         > Antes que você pudesse ter qualquer reação quando o esqueleto ergue sua espada 
                         o mais alto que consegue, os ossos voltam todos para o chão. Aparentemente, a magia 
-                        que o mantia de pé não era forte o suficiente para ele ter tempo de te atacar. De repente, 
+                        que o mantia de pé não era forte o suficiente para ele ter tempo de te atacar. Logo em seguida
                         você escuta um echo vindo mais adiante do calabouço: "Eu consigo sentir sua presença, humano".
                     </p>
                 </div>
@@ -639,11 +628,11 @@ Y        `=--~                  _..-'  ~`-.._                  ~`-'         |
                 <p class="options">[2] Voltar para o começo do calabouço.</p>
 
             </div>
-            <input id="inputCaminhoDireitaParte2" type="text" onkeypress="submit(event, 'inputCaminhoDireitaParte2')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputCaminhoDireitaParte2" class="inputOptions" type="text" onkeypress="submit(event, 'inputCaminhoDireitaParte2')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
         <!-- Necromancer sem morcego-->
-        <div id="necromancerSemMorcego" class="gameScreen">
+        <div id="necromancerSemMorcego" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p style="color: rgb(90, 12, 90);">
@@ -667,7 +656,7 @@ Y        `=--~                  _..-'  ~`-.._                  ~`-'         |
                 </div>
                 <div class="text">
                     <p class="texto">
-                        > A medida que você segue em frente, você começa a enxergar uma silhueta 
+                        > A medida que segue em frente, você começa a enxergar uma silhueta 
                         de uma criatura sombria, que se mistura com a escuridão do calabouço.
                         -Humano, não de mais nenhum passo, pois eu sou o guardião dessa passagem. 
                         Se você deseja passar, deve pagar o preço. Traga-me uma criatura da noite. 
@@ -679,11 +668,11 @@ Y        `=--~                  _..-'  ~`-.._                  ~`-'         |
                 <p class="options">[2] Voltar para o começo do calabouço.</p>
 
             </div>
-            <input id="inputNecromancer1" type="text" onkeypress="submit(event, 'inputNecromancer1')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputNecromancer1" class="inputOptions" type="text" onkeypress="submit(event, 'inputNecromancer1')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
         <!-- Necromancer com morcego-->
-        <div id="necromancerComMorcego" class="gameScreen">
+        <div id="necromancerComMorcego" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p style="color: rgb(90, 12, 90);">
@@ -707,7 +696,7 @@ Y        `=--~                  _..-'  ~`-.._                  ~`-'         |
                 </div>
                 <div class="text">
                     <p class="texto">
-                        > A medida que você segue em frente, você começa a enxergar uma silhueta 
+                        > A medida que segue em frente, você começa a enxergar uma silhueta 
                         de uma criatura sombria, que se mistura com a escuridão do calabouço.
                         -Humano, não de mais nenhum passo, pois eu sou o guardião dessa passagem. 
                         Se você deseja passar, deve pagar o preço. Traga-me uma criatura da noite.
@@ -719,38 +708,34 @@ Y        `=--~                  _..-'  ~`-.._                  ~`-'         |
                 <p class="options">[2] Voltar para o começo do calabouço.</p>
                 <p class="options">[3] Entregar morcego.</p>
             </div>
-            <input id="inputNecromancer2" type="text" onkeypress="submit(event, 'inputNecromancer2')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputNecromancer2" class="inputOptions" type="text" onkeypress="submit(event, 'inputNecromancer2')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
         <!-- Genio-->
-        <div id="genio" class="gameScreen">
+        <div id="genio" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p style="color: blue;">
       .-----.
-    .'0000000'.
+    .<span style="color: gold;">'0000000'</span>.
    /  .-. .-.  \
    |  | | | |  |
     \ \0/ \0/ /  
     C\   U   /D / \
-    0/  ---  \0 \_/
-     `--.v.--`  /_|
+    <span style="color: gold;">0</span>/  ---  \<span style="color: gold;">0</span> \<span style="color: gold;">_</span>/
+     `--.v.--`  <span style="color: gold;">/_|</span>
  . ----'  '---.'  '
-/__._. .  .  .__.'
-|_/  `|____/`
+/<span style="color: gold;">__</span>._. .  .  .__.'
+<span style="color: gold;">|_/</span>  `|____/`
 / \  / ____\
-\_/   \      '--.
-      '.        `\
-        `'---.   /
-             ) /
-                    </p>
+\_/   \      '--.</p>
                 </div>
                 <div class="text">
                     <p class="texto">
-                        > Agora você está dentro de uma câmara diferente do resto calabouço. A luz da 
-                        lua passa por uma abertura no teto e ilumina uma estátua de uma criatura mística, e 
-                        antes que você pudesse se aproximar, uma fumaça toma conta de todo calabouço, e você 
-                        pode ouvir um estrondo, como de trovões rasgando o céu e da fumaça sai uma voz:<br>
+                        > Agora você está dentro de uma câmara diferente do resto do calabouço. A luz da 
+                        lua passa por uma abertura no teto e ilumina uma estátua e antes que você pudesse se aproximar, 
+                        uma fumaça toma conta de todo o calabouço. Você pode ouvir um estrondo, como de trovões rasgando 
+                        o céu e da fumaça sai uma voz:<br>
                         -Eu sou o PODEROSO Ori-Jim, e por ter me libertado da minha prisão eu lhe-concederei um pedido.<br>
                         -O que você mais deseja?
                     </p>
@@ -762,14 +747,14 @@ Y        `=--~                  _..-'  ~`-.._                  ~`-'         |
                 <p class="options">[3] Mil desejos.</p>
                 <p class="options">[4] Um baú cheio de ouro.</p>
             </div>
-            <input id="inputGenio" type="text" onkeypress="submit(event, 'inputGenio')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputGenio" class="inputOptions" type="text" onkeypress="submit(event, 'inputGenio')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
         <!-- Passagem secreta espada magica-->
-        <div id="passagemSecreta1_espada" class="gameScreen">
+        <div id="passagemSecreta1_espada" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
-                    <p style="color: silver;">
+                    <p style="color: rgb(255, 145, 163);">
      /|
     |\|
     |||
@@ -795,11 +780,11 @@ Y        `=--~                  _..-'  ~`-.._                  ~`-'         |
                 <p class="options">[2] Seguir em frente.</p>
 
             </div>
-            <input id="inputPassagemSecreta1_espada" type="text" onkeypress="submit(event, 'inputPassagemSecreta1_espada')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputPassagemSecreta1_espada" class="inputOptions" type="text" onkeypress="submit(event, 'inputPassagemSecreta1_espada')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
         <!-- Passagem secreta bau de ouro-->
-        <div id="passagemSecreta1_bau" class="gameScreen">
+        <div id="passagemSecreta1_bau" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p style="color: gold;">
@@ -835,11 +820,11 @@ Y        `=--~                  _..-'  ~`-.._                  ~`-'         |
                 <p class="options">[2] Seguir em frente.</p>
 
             </div>
-            <input id="inputPassagemSecreta1_bau" type="text" onkeypress="submit(event, 'inputPassagemSecreta1_bau')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputPassagemSecreta1_bau" class="inputOptions" type="text" onkeypress="submit(event, 'inputPassagemSecreta1_bau')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
         <!-- Passagem secreta mil desejos-->
-        <div id="passagemSecreta2" class="gameScreen">
+        <div id="passagemSecreta2" class="gameScreen displayNone">
             <div id="screen1">
                 <div class="img">
                     <p style="color: rgb(90, 12, 90);">
@@ -848,8 +833,8 @@ Y        `=--~                  _..-'  ~`-.._                  ~`-'         |
                 </div>
                 <div class="text">
                     <p class="texto">
-                        > Você gastou o seu pedido...não parece ter funcionado.<br> 
-                        Uma passagem secreta se abriu na parede da câmara.
+                        > Você gastou o seu pedido e não parece ter funcionado.<br>
+                        *Uma passagem secreta se abriu na parede da câmara.*
                     </p>
                 </div>
             </div>
@@ -858,11 +843,11 @@ Y        `=--~                  _..-'  ~`-.._                  ~`-'         |
                 <p class="options">[2] Seguir em frente.</p>
 
             </div>
-            <input id="inputPassagemSecreta2" type="text" onkeypress="submit(event, 'inputPassagemSecreta2')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
+            <input id="inputPassagemSecreta2" class="inputOptions" type="text" onkeypress="submit(event, 'inputPassagemSecreta2')" maxlength="1" minlength="1" placeholder=">>> Digite sua ação">
         </div>
 
         <!--desejo genio coroa-->
-        <div id="desejoCoroa" class="gameScreen gameOver">
+        <div id="desejoCoroa" class="gameScreen gameOver displayNone">
             <div id="gameOverImg" class="img">
                 <p style="color: gold;"> 
                                    $""$o
@@ -885,9 +870,9 @@ o o o o    oo"  o"      "o    $$o$"     o o$""  o$      "$  "oo   o o o o
            $"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$"$$
                 </p>
             </div>
-            <div id="gameOverText" class="text">
+            <div id="gameOverText" class="">
                 <p class="texto">
-                    >  Você conseguiu a coroa, através do genio..<br>
+                    >  Você conseguiu a coroa através do gênio.<br>
                     <span style="color: yellow">Missão Cumprida</span>
                 </p>
             </div>

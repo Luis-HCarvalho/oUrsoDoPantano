@@ -3,7 +3,18 @@ var morcego;
 var espadaMagica;
 
 
-// (localStorage.length - 1) is the index of the current player
+// id to locate players name and title
+// if id exists ignore, else create one
+var id = false;
+for (let i = 0; i < localStorage.length; i++){
+    if (localStorage.key(i) === 'id'){
+        id = true;
+    }
+}
+if (id === false){
+    localStorage.setItem('id', '');
+}
+
 
 // set player leaderboards name and score
 var playerNameStatus;
@@ -15,12 +26,29 @@ function players(){
         playerNameStatus = true; // the player's name is valid
         localStorage.setItem(playerName.value, "sem título"); //store the player's name
 
+        // get the names of players in storage (id) and concatenate the new one 
+        // the format of storage is a string and a comma "," separate the names
+        let idPlayers = localStorage.getItem('id');
+        if (idPlayers.length === 0){
+            localStorage.setItem('id', playerName.value);
+        }
+        else{
+            idPlayers = idPlayers + ',' + playerName.value;
+        localStorage.setItem('id', idPlayers);
+        }
     }
     else{
         alert("O nome do jogador deve ter ao menos 3 letras");
     }
     playerName.value = "";
     
+}
+
+// titles
+function achivement(title){
+    let currentPlayer = localStorage.getItem('id').split(',');
+    currentPlayer = currentPlayer[currentPlayer.length - 1];
+    localStorage.setItem(currentPlayer, title);
 }
 
 
@@ -51,6 +79,7 @@ function gameStart(event){
 
 
 var proficiency;
+// submit is responsible for hide screens and display new ones 
 function submit(event, inputN){
     let input = document.getElementById(inputN);
     if (event.keyCode === 13){
@@ -103,23 +132,27 @@ function submit(event, inputN){
                 changeScreen(event, salaoDoTrono, vitoriaFurtiva);
                 changeFocus('inputPlayer');
                 //titulo = Ladrão de Coroas
+                achivement('Ladão de coroas');
             }
             else if(input.value == '2' && espadaMagica == true){
                 changeScreen(event, salaoDoTrono, matouDragao);
                 changeFocus('inputPlayer');
                 //titulo = Matador de Dragões
+                achivement('Matador de dragões');
             }
         }
         else if (inputN === "inputDragaoAcordou"){
             if (input.value == '2' && proficiency == '3'){
-                changeScreen(event, dragaoAcordou, derrotaCarismática);
+                changeScreen(event, dragaoAcordou, startScreen);
                 changeFocus('inputPlayer');
                 //titulo = Perdedor Carismático
+                achivement('Perdedor carismático');
             }
             else {
                 changeScreen(event, dragaoAcordou, dragaoAtacou);
                 changeFocus('inputPlayer');
                 //titulo = Morte por fogo
+                achivement('Comida de dragão');
             }
         }
         else if (inputN === 'inputCalabouco'){
@@ -214,6 +247,8 @@ function submit(event, inputN){
             }
         }
         else if (inputN === 'inputGenio'){
+            // titulo = explorador de calabouços
+            achivement('Explorador');
             if (input.value == '1'){
                 espadaMagica = true;
                 changeScreen(event, genio, passagemSecreta1_espada);
@@ -230,6 +265,8 @@ function submit(event, inputN){
             else if (input.value == '4'){
                 changeScreen(event, genio, passagemSecreta1_bau);
                 changeFocus('inputPassagemSecreta1_bau');
+                // titulo = ganancioso
+                achivement('Ganancioso');
             }
         }
         else if (inputN === 'inputPassagemSecreta1_espada' || inputN === 'inputPassagemSecreta1_bau' || 
@@ -272,4 +309,21 @@ function soundEffects(event, sound){
 // change the cursor location from one input to another
 function changeFocus(inputFocus){
     document.getElementById(inputFocus).focus();
+}
+
+// insert the names and title in the screen Pontuacao
+function pontuacao(event){
+    let score = document.getElementById('score');
+    let tagLi;
+    let text;
+
+    let idContent = localStorage.getItem('id').split(','); // is a list
+    for (let i = 0; i < idContent.length; i++){
+        tagLi = document.createElement('li');
+        text = document.createTextNode(idContent[i] + ' : ' + localStorage.getItem(idContent[i]));
+        
+        tagLi.appendChild(text);
+        score.appendChild(tagLi);
+
+    }
 }
